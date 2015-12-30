@@ -4,7 +4,6 @@ import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.config.RestAssuredConfig;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 import static com.jayway.restassured.RestAssured.*;
@@ -22,9 +21,10 @@ public class IT_HelloWorldApiIntegrationTest
         builder.setContentType("application/json; charset=UTF-8");
         RequestSpecification requestSpec = builder.build();
 
-        Response response = given(requestSpec).when().get("http://localhost:8080/hello");
-        JSONObject jsonResponseObject = new JSONObject(response.body().asString());
-        String result = jsonResponseObject.get("greeting").toString();
-        Assert.assertEquals(result, "Hello World!!");
+        String greetingMessage = given(requestSpec).when().get("http://localhost:8080/hello")
+                .then().statusCode(200)
+                .extract().path("greeting");
+
+        Assert.assertEquals(greetingMessage, "Hello World!!");
     }
 }
