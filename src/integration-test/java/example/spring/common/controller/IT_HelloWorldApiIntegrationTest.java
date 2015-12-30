@@ -22,7 +22,7 @@ public class IT_HelloWorldApiIntegrationTest
         builder.setContentType("application/json; charset=UTF-8");
         RequestSpecification requestSpec = builder.build();
 
-        String greetingMessage = given(requestSpec).when().get("http://localhost:8080/spring-mvc-testing-example/hello")
+        String greetingMessage = given(requestSpec).when().get("http://localhost:9090/spring-mvc-testing-example/hello")
                 .then().statusCode(200)
                 .extract().path("greeting");
 

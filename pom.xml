@@ -76,7 +76,7 @@
         </profile>
     </profiles>
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <!-- <finalName>${project.artifactId}</finalName> -->
         <filters>
             <filter>profiles/${build.profile.id}/config.properties</filter>
         </filters>
@@ -104,11 +104,14 @@
                 <version>2.2</version>
                 <configuration>
                     <port>9090</port>
-                    <url>http://localhost:9090/manager/text</url>
-                    <server>localhost</server>
+                    <!-- <url>http://localhost:9090/manager/text</url> -->
+                    <!-- <server>localhost</server> -->
                     <path>/${project.artifactId}</path>
-                    <username>admin</username>
-                    <password>s3cret</password>
+                    <!-- <username>admin</username> -->
+                    <!-- <password>s3cret</password> -->
+                    <!-- <contextFile>src/integration-test/resources/context.xml</contextFile> -->
+                    <!-- <warDirectory>${project.build.directory}/target/tomcat/webapps</warDirectory> -->
+                    <!-- <warSourceDirectory>${project.build.directory}/target</warSourceDirectory> -->
                 </configuration>
                 <executions>
                     <execution>
@@ -211,6 +214,28 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <warName>${project.artifactId}</warName>
+                    <packagingExcludes>
+                        WEB-INF/classes/Selenium-WebDrivers,
+                        WEB-INF/classes/Selenium-WebDrivers/**/*,
+                        Selenium-WebDrivers,
+                        Selenium-WebDrivers/**/*
+                    </packagingExcludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-war</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>war</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -239,6 +264,16 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>4.2.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.3.3</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
