@@ -104,7 +104,7 @@
         </profile>
     </profiles>
     <build>
-        <!-- <finalName>${project.artifactId}</finalName> -->
+        <finalName>${project.artifactId}</finalName>
         <filters>
             <filter>profiles/${build.profile.id}/config.properties</filter>
         </filters>
@@ -216,7 +216,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!-- <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
@@ -237,7 +237,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
     <dependencies>
