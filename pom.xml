@@ -8,6 +8,7 @@
     <packaging>war</packaging>
     <properties>
         <target.jdk>1.7</target.jdk>
+        <surefire.version>2.19</surefire.version>
     </properties>
     <profiles>
         <profile>
@@ -25,7 +26,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-report-plugin</artifactId>
-                        <version>2.18</version>
+                        <version>${surefire.version}</version>
                         <configuration>
                             <showSuccess>true</showSuccess>
                             <outputDirectory>${basedir}/target/surefire-reports</outputDirectory>
@@ -55,7 +56,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-report-plugin</artifactId>
-                        <version>2.18</version>
+                        <version>${surefire.version}</version>
                         <configuration>
                             <showSuccess>true</showSuccess>
                             <outputDirectory>${basedir}/target/failsafe-reports</outputDirectory>
@@ -89,7 +90,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18</version>
+                <version>${surefire.version}</version>
                 <configuration>
                     <skipTests>${skip.unit.tests}</skipTests>
                     <excludes>
@@ -166,7 +167,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18</version>
+                <version>${surefire.version}</version>
                 <executions>
                     <execution>
                         <id>integration-tests</id>
