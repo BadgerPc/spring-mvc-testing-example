@@ -1,4 +1,4 @@
-package example.spring.common.controller;
+package example.spring.mvcapp.controller;
 
 import org.junit.Assert;
 import org.junit.Test;

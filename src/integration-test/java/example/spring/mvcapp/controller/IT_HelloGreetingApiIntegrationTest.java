@@ -1,4 +1,4 @@
-package example.spring.common.controller;
+package example.spring.mvcapp.controller;
 
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.config.RestAssuredConfig;
@@ -12,12 +12,12 @@ import static org.hamcrest.Matchers.*;
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.*;
 import static com.jayway.restassured.matcher.RestAssuredMatchers.*;
 
-public class IT_HelloWorldApiIntegrationTest
+public class IT_HelloGreetingApiIntegrationTest
 {
     @Test
     public void integrationTestIt() throws InterruptedException
     {
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setContentType("application/json; charset=UTF-8");
         RequestSpecification requestSpec = builder.build();
@@ -26,6 +26,6 @@ public class IT_HelloWorldApiIntegrationTest
                 .then().statusCode(200)
                 .extract().path("greeting");
 
-        Assert.assertEquals(greetingMessage, "Hello World!!");
+        Assert.assertEquals(greetingMessage, "Hello Greeting!!");
     }
 }

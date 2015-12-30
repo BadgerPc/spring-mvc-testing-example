@@ -1,4 +1,4 @@
-package example.spring.common.controller;
+package example.spring.mvcapp.controller;
 
 import org.hamcrest.core.StringContains;
 import org.junit.Before;
@@ -19,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-mvc-config.xml"})
 @WebAppConfiguration
-public class UT_IndexControllerTest
+public class UT_HelloGreetingControllerTest
 {
     @Autowired
     private WebApplicationContext ctx;
@@ -32,12 +32,12 @@ public class UT_IndexControllerTest
     }
 
     @Test
-    public void indexControllerTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+    public void helloWorldControllerTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
             .andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(MockMvcResultMatchers.content().string(StringContains.containsString("Index Page")));
+            .andExpect(MockMvcResultMatchers.content().string(StringContains.containsString("Hello Greeting!!")));
     }
 
 }
