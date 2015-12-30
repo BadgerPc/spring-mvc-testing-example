@@ -9,10 +9,10 @@
 </head>
 <body>
     <br/>
-	<h1>spring-mvc-good-example</h1>
-	<h2>hello: <a href="/spring-mvc-good-example/hello.html">http://localhost:8080/spring-mvc-good-example/hello.html</a></h2>
-	<h2>index: <a href="/spring-mvc-good-example/index.html">http://localhost:8080/spring-mvc-good-example/index.html</a></h2>
-    <h2>root: <a href="/spring-mvc-good-example">http://localhost:8080/spring-mvc-good-example</a></h2>
+	<h1>spring-mvc-testing-example</h1>
+	<h2>hello: <a href="/spring-mvc-testing-example/hello.html">http://localhost:8080/spring-mvc-testing-example/hello.html</a></h2>
+	<h2>index: <a href="/spring-mvc-testing-example/index.html">http://localhost:8080/spring-mvc-testing-example/index.html</a></h2>
+    <h2>root: <a href="/spring-mvc-testing-example">http://localhost:8080/spring-mvc-testing-example</a></h2>
     <h2>parameters: ${msg}</h2>
 
     <br/><br/>

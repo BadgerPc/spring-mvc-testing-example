@@ -76,6 +76,6 @@
 
     </dependencies>
     <build>
-        <finalName>spring-mvc-good-example</finalName>
+        <finalName>${project.artifactId}</finalName>
     </build>
 </project>
