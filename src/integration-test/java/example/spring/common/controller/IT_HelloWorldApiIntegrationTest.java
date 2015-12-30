@@ -15,13 +15,14 @@ import static com.jayway.restassured.matcher.RestAssuredMatchers.*;
 public class IT_HelloWorldApiIntegrationTest
 {
     @Test
-    public void integrationTestIt()
+    public void integrationTestIt() throws InterruptedException
     {
+        Thread.sleep(10000);
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setContentType("application/json; charset=UTF-8");
         RequestSpecification requestSpec = builder.build();
 
-        String greetingMessage = given(requestSpec).when().get("http://localhost:8080/hello")
+        String greetingMessage = given(requestSpec).when().get("http://localhost:8080/spring-mvc-testing-example/hello")
                 .then().statusCode(200)
                 .extract().path("greeting");
 
