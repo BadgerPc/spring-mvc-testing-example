@@ -212,7 +212,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Project-Name>Integration App</Project-Name>
+                            <Project-Name>Integration Tests App</Project-Name>
                             <Build-Version>${project.version}</Build-Version>
                             <Build-Date>${maven.build.timestamp}</Build-Date>
                         </manifestEntries>
